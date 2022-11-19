@@ -1,0 +1,112 @@
+\subsection{比较判别法}
+
+为排除符号影响,先讨论"正项级数".
+
+\begin{definition}[正项级数]
+    设级数$\sum_{n=1}^\infty a_n$,当$n$充分大时,$a_n\geqslant 0$,则该级数称为正项级数(series of prositive terms).
+\end{definition}
+
+\begin{remark}
+    由于去掉或加上级数前面有限项不影响级数敛散性,所以对前面有限项符号没有要求.
+\end{remark}
+
+\begin{note}
+    类比开始研究积分时,积分函数为正.
+\end{note}
+
+$n$充分大时,正项级数部分和数列$S_n$单调递增,故正项级数要么收敛要么趋于正无穷.由单调有界收敛定理,反过来若级数部分和数列单调递增,则该级数一定是正项数列.
+
+\begin{proposition}[正项级数收敛的充要条件]
+    正项级数$\sum_{n=1}^\infty a_n$收敛当且仅当它的部分和数列$\{S_n\}$有界.
+\end{proposition}
+
+曾经在证明调和级数发散时,首先就是证明它无界.
+
+\begin{example}%//TODO
+    
+\end{example}
+
+证明数列有界时,基本思路是放大;反之证明数列无界时,是缩小.这个方法在判断级数敛散性时很有用.引出级数敛散比较判别法.
+
+\begin{theorem}[比较判别法]
+    设正项级数$\sum_{n=1}^\infty a_n,\sum_{n=1}^\infty b_n$,当$n$充分大时,有$a_n\leqslant b_n$.
+    \begin{enumerate}
+        \item 若$\sum_{n=1}^\infty b_n$收敛,则$\sum_{n=1}^\infty a_n$收敛.
+        \item 若$\sum_{n=1}^\infty a_n$发散,则$\sum_{n=1}^\infty b_n$发散.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}%//TODO
+    
+\end{proof}
+
+\begin{remark}
+    以上定理只对正项级数成立.
+\end{remark}
+
+使用比较判别法时,关键是找到一个可比较的$p$级数.
+
+\begin{note}
+    比较判别法的关键在于不等式的放缩,而这对技巧性的要求更高.因此想到用极限来转化不等式放缩问题.
+\end{note}
+
+\begin{note}
+    数学分析中,粗略的讲,一种东西可以写成三种形式:
+    \begin{enumerate}
+        \item 不等式形式
+        \item 极限形式
+        \item Landou记号
+    \end{enumerate}
+    而从不等式到Landou记号越来越粗略.
+\end{note}
+
+\begin{theorem}[比较判别法的极限形式]
+    设正项级数$\sum_{n=1}^\infty a_n,\sum_{n=1}^\infty b_n.$若
+    \[\lim_{n\to\infty}\frac{a_n}{b_n}=l.\]
+    则
+    \begin{enumerate}
+        \item $0<l<+\infty$,$\sum_{n=1}^\infty a_n,\sum_{n=1}^\infty b_n$同敛散.
+        \item $l=0$,若$\sum_{n=1}^\infty b_n$收敛,则$\sum_{n=1}^\infty a_n$也收敛.
+        \item $l=+\infty$,若$\sum_{n=1}^\infty a_n$发散,则$\sum_{n=1}^\infty b_n$也发散.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}%//TODO
+    
+\end{proof}
+
+\begin{note}
+    $\{a_n\},\{b_n\}$都是无穷小.
+\end{note}
+
+以上定理说明,判断正项级数敛散性,转化为找级数通项的同阶无穷小.
+
+\begin{example}
+    判断以下级数敛散性:
+    \[\sum_{n=1}^\infty (1-\cos\frac{x}{n}).\]
+\end{example}
+
+\begin{remark}
+    此例表明,级数可以定义一个函数.
+\end{remark}
+
+比较判别法不仅可以直接用于判断正项级数的敛散性性, 还可以派生出很多别的判别法. 如果以几何级数为 比较对象, 可以得到所谓的根值判别法 (root test).
+
+\begin{theorem}[Cauchy根值判别法]
+    
+\end{theorem}
+
+\begin{theorem}[Cauchy根值判别法的极限形式]
+    
+\end{theorem}
+
+如果以 $p$ 级数为比较对象, 可以得到所谓的对数判别法 (logarithmic test).
+
+\begin{proposition}[对数判别法]
+    
+\end{proposition}
+
+\begin{proposition}[对数判别法的极限形式]
+    
+\end{proposition}
+

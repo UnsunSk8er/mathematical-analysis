@@ -1,0 +1,18 @@
+\subsection{极限的运算法则}
+\begin{theorem}[夹逼定理]\label{sandwich theorem}
+    设数列$\z\{a_n\y\},\z\{b_n\y\},\z\{c_n\y\}$满足
+    \[a_n\leqslant b_n\leqslant c_n,\quad n=1,2,\cdots.\]
+    若$\lim_{n\to\infty}b_n=\lim_{n\to\infty}c_n=a$,则$\lim_{n\to\infty}b_n=a.$
+\end{theorem}
+
+\begin{remark}
+    夹逼定理又被称为三明治定理(sandwich theorem)
+\end{remark}
+
+\begin{proof}
+    \\Step1.按数列极限的定义对$\{a_n\},\{c_n\}$,易知$\forall \varepsilon >0,\exists N_1,N_2\in\N^{*}\st
+    (\forall n(n>N_1):a_n\in N_\varepsilon(a))\land(\forall n(n>N_2):c_n\in N_\varepsilon(a))$.\\
+    Step2.又由数列$\{a_n\},\{b_n\},\{c_n\}$满足$a_n\leqslant b_n \leqslant c_n,n=1,2,\cdots$.\\
+    Step3.于是当$n>\max\{N_1,N_2\}$时,成立$a-\varepsilon <a_n\leqslant b_n\leqslant c_n < a +\varepsilon$.这说明$\forall\varepsilon >0,\exists N=\max\{N_1,N_2\},\forall n(n>N):|b_n-a|<\varepsilon$,此即按数列极限的定义得证.
+
+\end{proof}

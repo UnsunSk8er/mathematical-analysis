@@ -1,0 +1,65 @@
+\documentclass[lang=cn,10pt,newtx]{elegantbook}
+
+\title{数学分析2}
+%\subtitle{\uppercase\expandafter{\romannumeral1}}
+
+\author{UnsunSk8er}
+\institute{Elegant\LaTeX{} Program}
+\date{\today}
+\version{0.1}
+%\bioinfo{自定义}{信息}
+
+\extrainfo{Everthing starts with a push.}
+
+\setcounter{tocdepth}{3}
+
+\logo{logo.png}
+\cover{cover.jpg}
+
+\usepackage{verbatim}
+\input{newcommand}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+% 修改标题页的橙色带
+\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+\usepackage{cprotect}
+
+\addbibresource[location=local]{reference.bib} % 参考文献，不要删除
+
+%水印
+\usepackage{draftwatermark}
+  \SetWatermarkText{UnsunSk8er} % the Text
+  \SetWatermarkLightness{0.9} % the lightness from 0 to 1, default 0.8
+  \SetWatermarkScale{1.0} % the scale, default 1.2
+
+\begin{document}%//INFO文档开始
+
+\maketitle
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+\linespread{1.5}\selectfont
+%\chapter*{Introduction}
+%\markboth{Introduction}{Introduction}
+
+\input{contents/c1/1.tex}%//INFO 级数理论与反常积分
+\input{contents/c2/2.tex}%//INFO 连续的一般化
+%\input{test.tex}
+
+
+
+
+\printbibliography[heading=bibintoc, title=\ebibname]
+\appendix
+
+
+
+
+
+\end{document}

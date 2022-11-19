@@ -1,0 +1,144 @@
+\subsection{级数及其基本性质}
+
+\begin{definition}[无穷级数]
+    设数列$\{a_n\}$,令
+    \[\sum_{n=1}^\infty a_n=a_1+a_2+\cdots+a_n+\cdots.\]
+    称$\sum_{n=1}^\infty a_n$为$a_n$的无穷级数(infinite series),简称级数.其中$a_n$称为级数的通项.
+    令\[S_n=\sum_{k=1}^n a_k=a_1+a_2+\cdots+a_n.\]
+    称$S_n$为这个数列的前$n$项和,也称为级数$\sum_{n=1}^\infty a_n$的部分和(partial sum).
+    若数列${S_n}$收敛到$S$,则称级数$\sum_{n=1}^\infty a_n$收敛,并称该级数和为$S$,记作\[\sum_{n=1}^\infty a_n=S.\]
+    反之,称该级数发散.
+\end{definition}
+
+从定义可以看出数项级数本质是一种数列.因此判断数项级数的敛散性就是判断数列的敛散性.
+
+\begin{example}[几何级数]
+    几何级数:
+    \[\sum_{n=0}^\infty q^n=1+q+q^2+\cdots+q^n+\cdots.\]
+    当$|q|<1$时,几何级数收敛于$\lim_{n\to\infty}S_n=\frac{1}{1-q}$
+\end{example}
+
+\begin{example}[$p$级数]
+    设$p$级数
+    \[\sum_{n=1}^\infty\frac{1}{n^p}=1+\frac{1}{2^p}+\frac{1}{3^p}+\cdots+\frac{1}{n^p}+\cdots.\]
+    $p\leqslant 1$时级数发散,$p>1$时级数收敛.特别地,当$p=1$时,称它为调和级数.
+\end{example}
+
+大部分情况下,级数的和很难求出.因此级数的研究重点不是求和,而是如何判断敛散性.级数本身是一种数列,因此判断数列敛散性的方法结论在级数中都适用,下面重点希望从通项来判断级数的敛散性.
+
+\begin{note}
+    当级数看作一种数列的和时,它的通项是$S_n$,此时即研究数列的$S_n$的敛散性.
+    而当级数看作通项的和时,才是需要研究的重点.
+\end{note}
+
+\begin{proposition}[级数收敛的必要条件]
+    级数$\sum_{n=1}^{\infty}$收敛的必要条件是$a_n\to 0.$    
+\end{proposition}
+
+\begin{proof}
+    设级数的和为$S$.令级数的部分和为$S_n$,则$a_n=S_n-S_{n-1}$.
+    令$n\to\infty$,则$a_n\to S-S=0.$此即得证.
+\end{proof}
+
+这个必要条件可断言很多级数不收敛.
+
+\begin{remark}
+    这个必要条件告诉我们级数收敛问题的重点在于收敛速度.
+\end{remark}
+
+\begin{note}
+    类比:
+    \begin{enumerate}
+        \item 函数可微$\implies$函数连续
+        \item 函数可积$\implies$函数有界
+    \end{enumerate}
+    这类必要条件是很有用的.
+\end{note}
+
+\begin{proposition}[级数的线性性质]
+    设级数$\sum_{n=1}^\infty a_n$与$\sum_{n=1}^\infty b_n$.若它们都收敛,则级数$\sum_{n=1}^\infty(\alpha a_n+\beta b_n)$也收敛,且
+    \[\sum_{n=1}^\infty(\alpha a_n+\beta b_n)=\alpha\sum_{n=1}^\infty+\beta\sum_{n=1}^\infty b_n.\]
+\end{proposition}
+
+\begin{proof}%//TODO
+    
+\end{proof}
+
+\begin{remark}
+    用这个命题可以计算比较复杂的级数.
+\end{remark}
+
+\begin{note}
+    会求级数的类型:
+    \begin{enumerate}
+        \item 可裂项相消的级数
+        \item 与几何级数相关的级数
+    \end{enumerate}
+\end{note}
+
+\begin{corollary}
+    设级数$\sum_{n=1}^\infty a_n$收敛,级数$\sum_{n=1}^\infty b_n$发散,则以下级数发散:
+    \[\sum_{n=1}^\infty(\alpha a_n+\beta_n),\quad\beta\ne 0.\]
+\end{corollary}
+
+\begin{proposition}[级数的结合性]
+    设级数$\sum_{n=1}^\infty a_n$收敛.若把级数项任意结合,但不改变各项顺序,则得到的新级数仍收敛,且与原级数有相同的和.
+\end{proposition}
+
+以上命题的逆命题不成立,为使其逆命题成立,可以加一些条件.
+
+\begin{proof}
+    设新的级数为
+    \begin{equation}\label{1.1}
+        (a_1+\cdots+a_{k_1})+(a_{k_1+1}+\cdots+a_{k_2})+\cdots+(a_{k_{n-1}+1}+\cdots+a_{k_n})+\cdots
+    \end{equation}
+    其中$k_1<k_2<\cdots<k_n<\cdots.$若原级数的部分和数列为$S_n(n=1,2,\cdots)$,则新级数的部分和数列为$S_{k_n}(n=1,2,\cdots)$,显然它是$S_n(n=1,2,\cdots)$的一个子列.因此新级数与原级数同敛散且有相同的和.
+\end{proof}
+
+\begin{note}
+    级数看作数列时收敛,则子列的极限和级数的极限相等.而子列收敛于某一极限不能推出级数收敛于某一极限.这是数列极限的理论.
+\end{note}
+
+\begin{remark}
+    结合律比交换律更本质,级数加到无穷项后交换律是难以把握的.\\
+    加完括号是子列的和,子列收敛原数列不一定收敛.对比数列极限和极限点.
+\end{remark}
+
+\begin{remark}
+    发散级数不满足结合性.
+    \begin{example}
+        \[\sum_{n=1}^\infty(-1)^{n-1}\]
+        本身是发散的,然而以不同的方式添加括号括号后竟然收敛于不同的极限:$0$和$1$.
+    \end{example}
+    \begin{note}
+        添加括号后是否可以看成子列?部分和数列不收敛但有极限点?
+    \end{note}
+\end{remark}
+
+\begin{proposition}
+    若级数\ref{1.1}收敛,且在同一括号里有相同的符号,则原级数$\sum_{n=1}^\infty a_n$也收敛,且两个级数有相同的.
+\end{proposition}
+
+\begin{proof}
+    设\ref{1.1}的部分和数列$A_n(n=1,2,\cdots)$且$A_n\to S$.设原级数部分和数列为$S_k$.由于括号中的项都同号,故当$k$从$k_{n-1}$变到$k_n$时,$S_k$将从$A_{n-1}$单调变化到$A_n$,即
+    \[A_{n-1}\leqslant S_k\leqslant A_n or A_n\leqslant S_k\leqslant A_{n-1}\]
+    当$k\to\infty$时$n\to\infty$,由于$\lim_{n\to\infty}A_{n-1}=\lim_{n\to\infty}A_n=S.$由夹逼定理可知$S_k\to S.$这表明原级数收敛,且两个级数有相同的和.
+\end{proof}
+
+级数的交换性比结合性更为复杂,后面会讨论"级数重排"问题,即无穷多项的交换.
+
+\begin{proposition}
+    在级数前面加上或去掉有限项,不会改变级数的敛散性.
+\end{proposition}
+
+\begin{proof}%//TODO
+    
+\end{proof}
+
+\begin{remark}
+    敛散性相同,但和未必相同.
+\end{remark}
+
+由数列$\{a_n\}$可以得到一个级数的部分和数列$\{S_n\}$,反过来可以由$\{S_n\}$构造一个数列$\{a_n\}$从而得到级数$\sum_{n=1}^\infty a_n$.
+
+前面研究了通过$\{a_n\}$判断$S_n$的敛散性;反过来有时通过$\{S_n\}$的敛散性判断$\{a_n\}$的敛散性更方便.

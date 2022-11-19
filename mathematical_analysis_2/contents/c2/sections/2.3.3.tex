@@ -1,0 +1,53 @@
+\subsection{度量空间的完备化}
+
+在讨论$\R$的完备性的时候有$7$个等价命题:
+\begin{enumerate}
+    \item Dedekind定理
+    \item LUB
+    \item Hiene-Borel定理
+    \item 单调有界收敛定理
+    \item 闭区间套定理
+    \item Bolzano-Werestrass定理
+    \item Cauchy收敛原理
+\end{enumerate}
+现在想要在一般的度量空间中推广完备性.但由于一般的度量空间甚至$\R^n$空间中不具备序结构,从而Dedekind定理、LUB、单调有界收敛定理都难以推广,而其中直接涉及度量的定理只有Cauchy收敛原理.
+于是可以考虑将它推广到一般的度量空间.
+
+\begin{definition}
+    [Cauchy列]
+    度量空间(X,d)中,设点列$\{x_n\}$.若$\forall\varepsilon >0,\exists N\in\N^*\st\forall n>N:$
+    \[d(x_m,x_n)<\varepsilon,\]
+    则称该点列是一个Cauchy列(Cauchy sequence)或基本列(fundamental sequence).
+\end{definition}
+
+一般的度量空间中,Cauchy列未必收敛,比如$\Q$中的Cauchy列.
+
+\begin{definition}
+    [完备的度量空间]
+    设度量空间$(X,d)$.若其中任一Cauchy列都收敛,则称$(X,d)$是完备的度量空间(complete metric space),简称完备空间(complete sapce).
+\end{definition}
+
+\begin{remark}
+    完备的内积空间称为Hilbert空间,完备的赋范空间称为Banach空间.
+\end{remark}
+
+一般的度量空间没有Cauchy收敛原理,但Cauchy收敛原理的必要性仍然是成立的.
+
+\begin{proposition}
+    度量空间$(X,d)$中,收敛的点列必为Cauchy列.
+\end{proposition}
+
+尽管Cauchy列未必收敛,但一定有界,若有收敛子列,则必收敛.
+
+\begin{proposition}
+    在度量空间$(X,d)$中,Cauchy列一定有界.
+\end{proposition}
+
+\begin{proposition}
+    度量空间$(X,d)$中,存在收敛子列的Cauchy列必收敛.
+\end{proposition}
+
+\begin{theorem}
+    [$\R^n$中的Cauchy收敛原理]
+    $\R^n$在$d_n$下是完备的,即在$d_n$下$\R^n$中的点列$\{x_k\}$收敛当且仅当它是Cauchy列.
+\end{theorem}

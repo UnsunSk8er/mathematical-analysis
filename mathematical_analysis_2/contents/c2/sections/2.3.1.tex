@@ -1,0 +1,164 @@
+\subsection{一般的度量}
+
+\begin{axiom}[度量]%//TODO
+    设非空集合$X$.定义一个映射:
+    \[d(\cdot,\cdot):X\times X\to\R.\]
+    若$d$满足:
+    \begin{enumerate}
+        \item 正定性
+        \item 对称性
+        \item 三角不等式
+    \end{enumerate}
+    则称$d$为$X$上的一个\textbf{距离}(distance)或\textbf{度量}(metric).
+    定义了一个度量$d$的集合$X$称为\textbf{度量空间},记作$(X,d)$.
+\end{axiom}
+
+\begin{remark}
+    从一般集合到数集的映射称为泛函(functional).度量是一个泛函.
+\end{remark}
+
+\begin{remark}
+    若$Y$是$X$的一个非空子集,则将$d$限制到$Y\times Y$上以后也是$Y$上的一个度量,于是$(Y,d)$是一个度量空间.
+\end{remark}
+
+\begin{example}
+    [离散度量]%//TODO
+    设非空集合$X$.令
+    \[d(x,y)=
+    \begin{cases}
+        &0,\quad x=y\\
+        &1,\quad x\ne y
+    \end{cases},\quad\forall x,y\in X.\]
+    则$d$称为离散度量,$(X,d)$是一个度量空间,称为离散空间.
+\end{example}
+
+\begin{remark}
+    离散空间表明,任一非空集合上都可以定义度量.
+\end{remark}
+
+\begin{remark}
+    度量空间一般总要求是线性空间,这样可以在其中做很多事.
+\end{remark}
+
+\begin{remark}
+    对比线性代数中的$\delta_{ij}$函数.
+\end{remark}
+
+\begin{example}%//TODO
+    连续函数空间$C[0,1]$中,令
+    \[d_1(f,g)=\max_{x\in [0,1]}|f(x)-g(x)|,\quad d_2(f,g)=\int_0^1|f(x)-g(x)|\od x.\]
+    则$(C[0,1],d_1),(C[0,1],d_2)$都是度量空间.
+\end{example}
+
+\begin{remark}
+    $d_1$关注局部,$d_2$关注整体.
+\end{remark}
+
+\begin{definition}
+    [有界集的度量定义]
+    在度量空间$(X,d)$中,设$E\subseteq X.$$\forall x\in X,\exists M>0\st\forall y\in E:$
+    \[d(x,y)<M,\]
+    称$E$为$X$上的一个有界集(bounded set).
+\end{definition}
+
+\begin{remark}
+    $\forall x\in X$可削弱为$\exists x_0\in X.$
+\end{remark}
+
+\begin{remark}
+    在$(\R^n,d_1)$中经常选取$x_0=0$为基准,其中$d_1\coloneq\lVert x-y\rVert,\forall x,y\in\R^n$.
+\end{remark}
+
+\begin{definition}
+    [集合的直径]
+    度量空间$(X,d)$中,设非空集合$E$.令
+    \[\odiam E\coloneq\sup_{x,y\in E}d(x,y).\]
+    称$\odiam E$为$E$的直径(diameter).
+\end{definition}
+
+\begin{remark}
+    规定空集的直径为0.
+\end{remark}
+
+\begin{remark}
+    集合直径的范围是$[0,+\infty]$
+\end{remark}
+
+\begin{proposition}
+    [有界集的直径刻画]
+    度量空间$(X,d)$中,集合$E$有界当且仅当$\odiam E\in\R.$
+\end{proposition}
+
+现将$\R$中度量定义的$\R$数列的极限推广到一般的度量空间上.
+
+\begin{definition}
+    [度量空间中的点列]
+    度量空间$(X,d)$中,取出的可数多元素并进行编号得到$x_1,\ldots,x_n,\ldots$,令
+    \[\{x_n\}:\N\to X\]
+    称$\{x_n\}$为$X$中的一个点列.
+\end{definition}
+
+\begin{proposition}
+    [度量空间中点列极限的度量刻画]
+    度量空间$(X,d)$中,设点列$\{x_n\}$.$\exists l\forall \varepsilon >0,\exists \N^*\st\forall N>\N^*:$
+    \[d(x_n,l)<\varepsilon.\]
+    则称$l$收敛到$l$,或$\{x_n\}$的极限是$l$.
+\end{proposition}
+
+\begin{definition}
+    [度量空间中点列极限的邻域刻画]
+    度量空间$(X,d)$中,设点列$\{x_n\}$.$\forall U(x),\exists N\in\N^*\st\forall n>N:x_n\subseteq U(x)$.则称$\{x_n\}$收敛于$l$.或称$\{x_n\}$的极限是$l$.记作
+    \[\lim_{n\to\infty}x_n=l\quad \textit{或}\quad x_n\to l(n\to\infty).\]
+\end{definition}
+
+\begin{remark}
+    度量空间中,除了度量,没有任何其他结构.这说明,极限的概念只需要度量即可定义!
+\end{remark}
+
+下面类比定义度量空间上的有界点列、子列等概念.
+
+\begin{definition}
+    [有界点列]
+    度量空间$(X,d)$中,设点列$\{x_n\}$.若$\forall x\in X,\exists M>0\st$
+    \[d(x_n,x)\leqslant M,\quad n=1,2,\dots.\]
+    则称点列$\{x_n\}$有界.
+\end{definition}
+
+\begin{remark}
+    同样,$\forall x\in X$可削弱为$\exists x_0\in X$.
+\end{remark}
+
+\begin{remark}
+    在$(\R^n,d_1)$中常选取$x_0=0$为基准中心.
+\end{remark}
+
+\begin{note}
+    由此可见,度量空间是“去中心化的”,要在其中做一些事情,要选取基准中心.
+\end{note}
+
+下面定义度量空间中点列的子列和极限点.
+
+\begin{definition}
+    [子列和极限点]
+    度量空间$(X,d)$中,设点列$\{x_n\}$.若$k_i\in\N^*(i=1,2,\ldots)$满足$k_1<k_2<\ldots$,则称点列$\{x_{k_n}\}$为$\{x_n\}$的一个子列.若$\{x_n\}$存在一个子列收敛于$l$,则称$l$是$x_n$的一个极限点.
+\end{definition}
+
+\begin{remark}
+    点列的子列可看作映射$\N\to\N\to X$,有$\{x_{k_n}\}\subseteq \{x_n\}\subseteq X$.
+\end{remark}
+
+$\R^n$中点列的一些性质对度量空间中的点列仍然成立.
+
+\begin{proposition}
+    [点列极限的性质]
+    度量空间$(X,d)$,设点列$x_n\to l$,则
+    \begin{enumerate}
+        \item $\{x_n\}$唯一.
+        \item $\{x_n\}$有界.
+        \item $\{x_n\}$任一子列收敛到$l$,即$\{x_n\}$极限点唯一.
+    \end{enumerate}
+\end{proposition}
+
+\begin{remark}
+    度量空间中没有线性结构、序结构,因此极限中没有线性运算法则、和保序夹逼等定理.
+\end{remark}

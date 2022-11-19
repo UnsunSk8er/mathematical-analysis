@@ -1,0 +1,272 @@
+\subsection{数列的上极限和下极限}
+
+
+数列的所有极限点组成的集合非空,即可以是有限集、可数集、不可数集.
+从数列来看,所有子列的极限刻画了数列的趋势,这个趋势多数情况是个范围.
+我们关心的数列极限,直观上当这个范围越来越小时,就有可能存在.
+既然我们只关心数列的极限,那么这个范围里面的具体元素并非我们所关心的.
+于是为了描述控制数列趋势的这个范围,我们引入数列的上下极限的概念.
+从而,当范围越来越小时,数列极限可能被上下极限“夹逼”出来.
+
+\begin{note}
+    思想方法类比数列极限的夹逼定理\ref{sandwich theorem},类似的思想还将在连续函数的刻画和Riemann可积的等价刻画中再度出现.
+\end{note}
+
+\begin{definition}[数列的上极限和下极限:定义方式1]
+    设数列$\{a_n\}$,记$\{a_n\}$的所有极限点组成的集合为$E$,其中可以包含$+\infty$或$-\infty$.令
+    \[\limsup_{n\to\infty}a_n\coloneq\sup E,\qquad\liminf_{n\to\infty}a_n\coloneq\inf E.\]
+    称$\limsup_{n\to\infty}a_n$为$\{a_n\}$的上极限(limit superior),$\liminf_{n\to\infty}a_n$为$\{a_n\}$的下极限(limit inferior).
+\end{definition}
+
+\begin{note}
+    从定义不难看出它是由确界原理和列紧性定理确保的.
+\end{note}
+
+$E\ne \emptyset$,即说明任意数列都存在极限点,从而存在上下极限,这使得极限点比极限对数列趋势的刻画更容易操作和把握.
+
+关于如何求数列上下极限没有固定的简单方法.对只有有限个极限点的情况,可以求出所有极限点,从而看出上下极限,它们分别是最大的和最小的极限点,下举两例.
+
+%//TODO 例
+\begin{example}
+    设数列
+    \[\{a_n\}=\frac{(-1)^n}{1+1/n},\quad n=1,2,\cdots.\]
+    求$\limsup_{n\to\infty}a_n,\liminf_{n\to\infty}a_n.$
+\end{example}
+
+%//TODO 例
+\begin{example}
+    设数列
+    \[a_n=\frac{n^2}{1+n^2}\cos\frac{2n\pi}{3},\quad n=1,2,\cdots.\]
+    求$\limsup_{n\to\infty}a_n,\liminf_{n\to\infty}a_n.$
+\end{example}
+
+\begin{note}
+    按极限点的不同可以对极限点集$E$进行划分.
+\end{note}
+
+若数列有无穷多个极限点，则上极限未必是最大极限点.
+这是由于上极限是极限点集$E$的上确界，上极限未必属于$E$.
+下面的命题讨论了这个问题.
+
+\begin{proposition}
+    设数列$\{a_n\}$,$E$依然是这个数列所有极限点的集合.则
+    \[\limsup_{n\to\infty}a_n\in E,\qquad\liminf_{n\to\infty}a_n\in E.\]
+\end{proposition}
+
+%//TODO 证明
+\begin{proof}
+   即证$\sup E\in E,\inf E\in E$.确切地说就是要证明$\{a_n\}$的极限点集$E$的上下确界是极限点,从而只需要证明存在子列收敛到极限点集$E$的上下确界.这里只证上极限的情况,下极限情况类似.
+\begin{enumerate}
+    \item 若$\limsup_{n\to\infty}a_n=+\infty$,则$E$无上界,即$\{a_n\}$的极限点集没有上界.
+    这说明存在极限为$+\infty$的$\{a_n\}$的子列,于是$+\infty$是一个极限点，从而它在$E$中.
+    \item 若$\limsup_{n\to\infty}a_n=-\infty$,由于$E$非空,则$E$中只有$-\infty$，从而它在$E$中.
+    \item 若$\limsup_{n\to\infty}a_n=a\in\R$,这只需证明$\{a_n\}$有一个子列收敛到$a$,这样$a$作为这个子列的极限点必然属于极限点集$E$.
+    由于$a$是$E$的上确界,于是在$a$的邻域$N_{\varepsilon_1}(a)$可以找到一个极限点$l_1$,存在$l_1$的邻域$N(l_1)\subset N_{\varepsilon_1}(a)$含$\{a_n\}$的无穷多项,从中选取一项$a_{k_1}$.
+    同理可以找到极限点$l_2\in N_{\varepsilon_2}$,存在$l_1$的邻域$N_(l_2)\subset N_{\varepsilon_2}(a)$含$a_n$的无穷多项,从中选取一项$a_{k_2}$.
+    这样由数学归纳法,做下去得到一个数列$a_{k_n}$,令$\varepsilon=1/n$,从而$a_{k_n}\in N_{1/n}(a)$,即
+    \[a-\frac{1}{n}<a_{k_n}<a+\frac{1}{n},\quad n=1,2,\cdots.\]
+    由数列极限夹逼性定理,得到
+    \[\lim_{n\to\infty}a_{k_n}=a.\]
+\end{enumerate}
+综上所述,命题得证.
+\begin{note}
+    关于$l_n$为什么可以取到：$a$是$E$的上确界,意味着$\forall x\in E,x<a$,且$\forall \varepsilon>0,\exists x\in E,x>a-\varepsilon.$证明中的$\varepsilon_n$取为$1/n$,这是为了凸显$\varepsilon$任意小,使它趋于$0$以构造子列完成夹逼,夹逼出来的子列即为我们想要的.
+\end{note}
+\end{proof}
+
+\begin{remark}
+    上面的命题告诉我们,上下极限都是数列的极限点,进一步讲,上极限就是数列的最大极限点,下极限就是数列的最小极限点
+\end{remark}
+
+由上下极限定义由确界原理确保的部分，我们容易得出下列命题.
+
+\begin{proposition}\label{sjxxydyxjx}
+    设数列$\{a_n\}$,有
+    \[\limsup_{n\to\infty}a_n\leqslant\liminf_{n\to\infty}a_n,\]
+    等号成立当且仅当$\{a_n\}$极限存在.
+\end{proposition}
+
+\begin{proof}
+    由上下确界的定义,不等式显然成立.
+    现在看等号成立的情况.
+    当$a_n$极限存在时,设极限为$a$.则极限点集为$E=\{a\}$.由于上下极限都属于$E$,从而它们都为$a$,于是上下极限相等.
+    反之,上下极限相等,说明$E$中有且仅有一个极限点,这就说明$\{a_n\}$极限存在.
+    此即得证.
+\end{proof}
+
+\begin{note}
+    证明极限存在只需证明$\limsup_{n\to\infty}\leqslant\liminf_{n\to\infty}a_n$
+\end{note}
+
+数列极限可以用$\varepsilon -N$(或邻域)刻画,也可以看作上下极限相等的特殊情况.
+
+当数列$\{a_n\}$极限为$a$时,极限唯一且$\forall \varepsilon,\delta>0,(a-\varepsilon,a+\delta)$中有数列的无穷多项,此区间外只有有限项.这是特殊情况.一般的情况是,当数列的上下极限存在且分别为$l,L$时,$(l-\varepsilon,L+\delta)$中有数列的无穷多项,此区间外只有有限项.因而上下极限也可由$\varepsilon -N$和邻域来刻画.
+
+\begin{theorem}[数列的上极限和下极限：定义方式2]\label{sxjxdy2}
+    设数列$\{a_n\}$,令
+    \begin{align*}E_1=\{\exists a\in\R:\forall\varepsilon>0,\exists N\in\N^*\st\forall n>N:a_n<a+\varepsilon\},\\
+    E_2=\{\exists a\in\R:\forall\varepsilon>0,\exists N\in N^*\st\forall n>N:a_n>a-\varepsilon\}.\end{align*}
+    则
+    \[\limsup_{n\to\infty}a_n=\inf E_1,\qquad\liminf_{n\to\infty}a_n=\sup E_2.\]
+\end{theorem}
+
+\begin{proof}
+    只证明上极限的情况,下极限的情况类似.设$\limsup_{n\to\infty}a_n=L.$
+    \begin{enumerate}
+        \item 证明$L\geqslant\inf E_1.$用反证法,假设$L<\inf E_1$,即$L\notin E_1$,则$\exists\varepsilon>0,\forall N\in\N^*\st\exists n>N:a_n\geqslant a+\varepsilon.$这表明在$(L+\varepsilon,+\infty)$中有数列的无穷多项,于是由Bolzano-Weierstrass定理,在$(L+\varepsilon,+\infty)$中必然存在一个大于$L$的极限点,这与$L$是极限点集的上确界矛盾.因此假设不成立,于是$L\geqslant \inf E_1$
+        \item 证明$L\leqslant\inf E_1.$用反证法,假设$L>\inf E_1$.即$\exists a\in E_1\st a<L.$则$\exists\varepsilon >0\st a+\varepsilon <L.$由于$a\in E_1$,于是$\exists N\in\N^*\st\forall n>N:a_n<a+\varepsilon.$这表明$(a+\varepsilon,+\infty)$中有$\{a_n\}$的有限项,因此$L$不是极限点,与$L$是上极限矛盾.因此假设不成立,于是$L\leqslant \inf E_1$
+    \end{enumerate}
+    综上所述,命题得证.
+\begin{note}
+    \begin{enumerate}
+    \item Bolzano-Weierstrass定理表明,$\R$中任一数列都有极限点.
+    \item 这里的上下确界即可看作$E$中最大最小值,这是由\ref{sjxxydyxjx}确保的.
+    \end{enumerate}
+\end{note}
+\end{proof}
+
+\begin{remark}
+    讲上下极限为无穷的情况也纳入到定义内,令
+    \begin{align*}
+        E_1=\{\exists a\in \overline{\R}:\forall \xi >a,\exists n\in\N^*\st\forall n>N:a_n<\xi\}\\
+        E_2=\{\exists a\in \overline{\R}:\forall \xi <a,\exists n\in\N^*\st\forall n>N:a_n>\xi\}
+    \end{align*}
+    则
+    \[\limsup_{n\to\infty}a_n=\inf E_1,\qquad\liminf_{n\to\infty}a_n=\sup E_2.\]
+\end{remark}
+
+利用上下极限的$\varepsilon-N$(或邻域)刻画可以证明上下极限的保序性.
+
+\begin{proposition}[上极限和下极限的保序性]
+    设$\{a_n\},\{b_n\}$,若$\exists N\in\N^*\st \forall n>N:a_n\leqslant b_n$,则
+        \begin{align*}
+            &(1)\quad\limsup_{n\to\infty}a_n\leqslant\limsup_{n\to\infty}b_n,\\
+            &(2)\quad\liminf_{n\to\infty}a_n\leqslant\liminf_{n\to\infty}b_n.
+        \end{align*}
+\end{proposition}
+
+\begin{proof}
+    只证明(1),(2)类似可证.设$\limsup_{n\to\infty}a_n=A,\limsup_{n\to\infty}b_n=B.$
+    \begin{enumerate}
+        \item 若$A=-\infty$或$B=+\infty$,则显然成立.
+        \item 当$A=+\infty$时,由$\limsup_{n\to\infty}a_n=A$有$\forall \xi >A,\exists N_1\in\N^*\st\forall n>N:a_n>\xi.$由条件可知,$\exists N'=\max\{N,N_1\}\st\forall n>N':b_n\geqslant a_n\geqslant\xi$.
+        这说明$B=+\infty$,从而成立$B\geqslant A$.类似可证,$B=-\infty$的情况.
+        \item 当$A,B\in\R$时,用反证法.
+        假设$A>B$,于是$\exists \varepsilon >0\st A>B+\varepsilon$.
+        由$\limsup_{n\to\infty}b_n=B$,有$\forall \varepsilon >0,\exists N_2\in\N^*\st\forall n>N_2:b_n<B+\varepsilon$.
+        于是$\exists N''=\max\{N,N_2\}\st\forall n>N'': a_n\leqslant b_n<B+\varepsilon<A$.这说明$(B+\varepsilon,+\infty)$内只有$\{a_n\}$有限项,则$A$不是极限点,这与$A$是上极限矛盾.因此假设不成立,于是$A\leqslant B.$
+    \end{enumerate}
+    综上所述,命题得证.
+\begin{note}
+    注意定义的$\varepsilon-N$语言和数列极限的邻域刻画(拓扑),即$a$任意邻域外只有$\{a_n\}$的有限项.
+\end{note}
+\end{proof}
+
+任一数列总是有上下极限的,因此相比于数列极限,用上下极限可以简化处理问题.
+
+\begin{example}[Stolz-Cesalo定理]%//TODO
+    设数列$\{a_n\},\{b_n\}$,若$\{b_n\}$严格递增,且$\lim_{n\to\infty}b_n=+\infty$,则有
+    \[\liminf_{n\to\infty}\frac{a_n-a_{n-1}}{b_n-b_{n-1}}\leqslant\liminf_{n\to\infty}\frac{a_n}{b_n}\leqslant\limsup_{n\to\infty}\frac{a_n}{b_n}\leqslant\limsup_{n\to\infty}\frac{a_n-a_{n-1}}{b_n-b_{n-1}}.\]
+\end{example}
+
+已经给出了两种定义上下极限的方式,它们比较直观,然而与数列没有“直接挂钩”,在处理某些问题是并不是很便利.下面尝试从新角度对上下极限进行定义.由于研究数列极限不需要关心前面有限项,我们定义以下数列.
+
+\begin{definition}
+    设数列$\{a_n\}$,令
+    \begin{align*}
+        &L_n\coloneq\sup_{k\geqslant n}a_k=\sup\{a_n,a_{n+1},\cdots\},\quad n=1,2,\cdots,\\
+        &l_n\coloneq\inf_{k\geqslant n}a_k=\inf\{a_n,a_{n+1},\cdots\},\quad n=1,2,\cdots.
+    \end{align*}
+    则$\{L_n\}$单调递减,$\{l_n\}$单调递增.
+\end{definition}
+
+\begin{proof}
+    只证$\{L_n\}$单调递减,$\{l_n\}$单调递增类似.
+    \[\{a_k:k\geqslant n+1\}\subset\{a_k:k\geqslant n,\quad n=1,2,\cdots.\]
+    此即得证.
+\end{proof}
+
+\begin{note}
+    $\{L_n\}$为$\{a_n,a_{n+1},\cdots\},n=1,2,\cdots$的上确界数列,对应的$\{l_n\}$为下确界数列.
+\end{note}
+
+\begin{theorem}[数列的上极限和下极限:定义方式3]
+    \label{sxjxdy3}
+    设数列$\{a_n\}$,则
+    \begin{align*}
+        &(1)\quad\limsup_{n\to\infty}a_n=\lim_{n\to\infty}\z(\sup_{k\geqslant n}a_k\y),\\
+        &(2)\quad\liminf_{n\to\infty}a_n=\lim_{n\to\infty}\z(\inf_{k\geqslant n}a_k\y).
+    \end{align*}
+\end{theorem}
+
+\begin{proof}%//TODO
+    只证明(1),类似可证(2).
+    令$\limsup_{n\to\infty}a_n=L,\sup_{k\geqslant n}a_k=L_n.$
+    则转化为证明$\lim_{n\to\infty}L_n=L.$
+    \begin{enumerate}
+        \item 当$L=+\infty$时,$\{a_n\}$有一个极限点为$+\infty$的子列,因此\[L_n=\sup\{a_n,a_{n+1},\cdots\}=+\infty,\quad n=1,2,\cdots.\]
+        即无论$n$多大$L_n$的上确界总是$+\infty$.于是可知,$\lim_{n\to\infty}a_n=+\infty.$
+        \item 当$L=-\infty$时,$\lim_{n\to\infty}a_n=-\infty.$
+        故\[\forall G>0,\exists N\in\N^*\st\forall n>N:a_n<-G.\]
+        于是\[L_N=\sup\{a_{N},a_{N+1},\cdots\}<-G,\quad n=1,2,\cdots.\]
+        由于$L_n$单调递减,于是$n>N$时$L_n\leqslant L_{N}<-G.$这就说明,$\lim_{n\to\infty}=-\infty.$
+        \item 当$L\in \R$时,
+        \begin{enumerate}
+            \item 证明$L\leqslant\lim_{n\to\infty}L_n.$\\
+            任取$\{a_n\}$的一个极限点$l$,则存在一个子列$a_{k_i}$收敛于$l$.对给定的$n$选取$i\geqslant n,$则$k_i\geqslant i\geqslant n$.
+            于是\[a_{k_i}\leqslant\sup\{a_n,a_{n+1},\cdots,a_{k_i},\cdots\}=L_n,\quad n=1,2,\cdots.\]
+            先令$i\to +\infty$,再令$n\to +\infty,$得$l\leqslant\lim_{n\to\infty}L_n$.由于$l$是任取的,所以有$L\leqslant\lim_{n\to\infty}L_n.$
+            \item 证明$L\geqslant\lim_{n\to\infty}L_n.$\\
+            由\ref{sxjxdy2}可知,
+            \[\forall \varepsilon >0,\exists N\in\N^*\st\forall n>N:a_n\leqslant L+\varepsilon.\]
+            由于$L_n$单调递减,所以当$n>N$时,$a_n\leqslant a_N$,则$L_n\leqslant L_N\leqslant a_N\leqslant L+\varepsilon.$令$n\to\infty$,则有$\lim_{n\to\infty}L_n\leqslant L+\varepsilon$,又由于$\varepsilon$任意性(任意小),于是得$\lim_{n\to\infty}L_n\leqslant L.$
+        \end{enumerate}
+        于是$L=\limsup_{n\to\infty}L_n.$
+    \end{enumerate}
+    综上所述,证明了$\limsup_{n\to\infty}a_n=\lim_{n\to\infty}\z(\sup_{k\geqslant n}a_k\y)$
+    \begin{note}\\
+        1,2,3.(b)的证明思路是类似的,按定义方式2进行证明\\
+        尤其注意3.(a)的证明中对子列项的控制
+    \end{note}
+\end{proof}
+
+\begin{remark}
+    数列的上下极限也可按此定义方法记作$\overline{\lim}a_n,\underline{\lim}a_n$.用这个定义方法处理关于上下极限的不等式较为简便.
+\end{remark}
+
+上下极限与极限的不同之处在于极限满足“可加性”,而上下极限分别满足“次可加性”和“超可加性”.
+
+\begin{proposition}[上极限的次可加性和下极限的超可加性]
+    设数列$\{a_n\},\{b_n\}$,则
+    \begin{align*}
+        &(1)\quad \liminf_{n\to\infty}a_n +\liminf_{n\to\infty}b_n\leqslant \liminf_{n\to\infty}(a_n+b_n)\leqslant \liminf_{n\to\infty}a_n+\limsup_{n\to\infty}b_n,\\
+        &(2)\quad \liminf_{n\to\infty}a_n+\limsup_{n\to\infty}b_n\leqslant\limsup_{n\to\infty}(a_n+b_n)\leqslant\limsup_{n\to\infty}a_n+\limsup_{n\to\infty}b_n.
+    \end{align*}
+\end{proposition}
+
+\begin{proof}
+    只证明(1),类似可证(2).
+    对任意$l\geqslant n$,有$\inf_{k\geqslant n}a_n\leqslant a_l,\inf_{k\geqslant n}b_n\leqslant b_l,$
+    于是\[\inf_{k\geqslant n}a_k+\inf_{k\geqslant n}b_k\leqslant a_l+b_l.\]由于$l\geqslant n$的任意性,有
+    \[\inf_{k\geqslant n}a_k+\inf_{k\geqslant n}b_k\leqslant \inf_{k\geqslant n}(a_k+b_k).\]
+    于是可知,
+    \[\inf_{k\geqslant n}a_k+\sup_{k\geqslant n}b_k\geqslant\inf_{k\geqslant n}(a_k+b_k)-\inf_{k\geqslant n}b_k+\sup_{k\geqslant n}b_k=\inf_{k\geqslant n}(a_k+b_k).\]
+    于是
+    \[\inf_{k\geqslant n}a_k +\inf_{k\geqslant n}b_k\leqslant\inf_{k\geqslant n}(a_k+b_k)\leqslant\inf_{k\geqslant n}a_k+\sup_{k\geqslant n}b_k.\]
+    再令$n\to\infty$,由\ref{sxjxdy3}得,
+    \[\liminf_{n\to\infty}a_n+\liminf_{n\to\infty}b_n\leqslant\liminf_{n\to\infty}(a_n+b_n)\leqslant\liminf_{n\to\infty}a_n+\limsup_{n\to\infty}b_n.\]
+    此即得证.
+\end{proof}
+
+\begin{remark}
+    上面的定理不等式两端需要有意义,不能出现$\infty -\infty$型.
+\end{remark}
+
+\begin{remark}
+    设定义在$A$上的映射$f$.
+    \begin{enumerate}
+        \item 若$f(a+b)=f(a)+f(b),\forall a,b\in A$,则称$f$满足可加性(additivity).
+        \item 若$f(a+b)\geqslant f(a)+f(b),\forall a,b\in A$,则称$f$满足超可加性(superadditivity).
+        \item 若$f(a+b)\leqslant f(a)+f(b),\forall a,b\in A$,则称$f$满足次可加性(subadditivity).
+    \end{enumerate}
+\end{remark}
