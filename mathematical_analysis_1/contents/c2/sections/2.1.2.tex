@@ -1,0 +1,41 @@
+\subsection{Dedekind分割}
+
+\begin{definition}
+    [Dedekind分割]
+设数集$K$的一个划分$\{\alpha,\beta\}$,若满足:
+    \begin{enumerate}
+        \item $\alpha$“向下封闭”:$\forall x,y\in K,x<y:y\in \alpha\implies x\in \alpha.$
+        \item $\alpha$“无最大元”:$\forall x\in\alpha,\exists y\in\alpha\st y>x.$
+    \end{enumerate}
+    则称该划分为$K$上的一个Dedekind分割(Dedekind cut),记作$\alpha\mid\beta$.其中$\alpha$称为这个Dedekind分割的下集(lower set),$\beta$称为这个Dedekind分割的上集(upper set).
+\end{definition}
+
+\begin{remark}
+    $\{\alpha,\beta\}$是$K$的一个划分,于是$\alpha,\beta$满足:
+    \begin{enumerate}
+        \item $\alpha,\beta\ne\emptyset$
+        \item $\alpha\cap\beta =\emptyset$
+        \item $\alpha\cup\beta =K$
+    \end{enumerate}
+\end{remark}
+
+\begin{remark}
+    也可以规定$\beta$“向上封闭”且“无最小元”,本质是一样的,只是后面的证明会因为定义而改变.
+\end{remark}
+
+\begin{definition}
+    [实数集]
+    有理数域$\Q$上的所有Dedekind分割的下集所组成的集合称为实数集(set of real numbers),记作$\R$.其中每个Dedekind分割的下集表示一个实数(real number).
+\end{definition}
+
+\begin{note}
+    Dedekind分割体现了一个“无限过程”,由于$\alpha$中无最大元,且$\Q$具有稠密性,于是任取一个数$a_0\in\alpha$总能取到一个数大于它,记这个数为$a_1$,反复进行下去,我们就得到了一列有序的数字$a_1,a_2,\cdots$(后面我们将会定义数列).直观上这列数是越来越大的,但又不能大到跑出$\alpha$,于是这列数会逼近一个数,即我们要定义的实数.
+\end{note}
+
+\begin{remark}
+    这列数所逼近的数可能在$\Q$中,此时即为$\beta$的最小元,也可能不在$\Q$中,此时这个数是个无理数.
+\end{remark}
+
+\begin{remark}
+    这列数越来越大与后面的数列单调性有关,不能大到跑出$\alpha$,与后面的有界性有关,这两者结合可以联想到数列的单调有界收敛定理,这是后话.
+\end{remark}
