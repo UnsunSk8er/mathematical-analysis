@@ -1,0 +1,36 @@
+\subsubsection{集合——非正式观点}
+
+下面我们将用非正式的观点讨论如何得到一些集合.首先我们引入原子（atom）的概念.
+原子是那些自身不是集合但我们想让它们作为集合的元素的东西.
+令$A$包含所有的原子,$A$在我们的描述下的第一个集合.
+现在可以建立一个阶梯：
+\[V_0\subseteq V_1\subseteq V_2\subseteq \cdots\]
+令$V_0=A$,即$V_0=\{atoms\}$.那么下一个层会包含所有原子的集合：
+\[V_1=V_0\cup\p V_0=A\cup\p A.\]
+第三层包含所有低层的东西，加上说有低层东西的集合：
+\[V_2=V_1\cup\p V_1.\]
+并且一般地有：
+\[V_{n+1}=V_n\cup\p V_n.\]
+于是我们得到了接续的$V_0,V_1,V_2,\cdots$.但即使是这样一个无穷的阶梯，也没有包含足够多的集合.
+
+\begin{example}
+    \[\{\emptyset,\{\emptyset\},\{\{\emptyset\}\},\cdots\}\]不包含在上面的阶梯中.
+\end{example}
+
+为了弥补这个缺陷,取
+\[V_{\omega}=V_0\cup V_1\cup\cdots,\]
+然后令
+\[V_{\omega+1}=V_{\omega}\cup\p V_{\omega},\]
+一般地，对任意的$\alpha$,
+\[V_{\alpha+1}=V_{\alpha}\cup\p V_{\alpha},\]
+这个过程可以持续做下去。
+对每个集合$a$,存在某个$\alpha$有$a\in V_{\alpha+1}$,$\alpha$称为这个集合的级别（rank）.这就是集合的本质，集合是某些阶梯中某些阶层的元素.
+
+\begin{note}
+    真类不是集合，不在这个阶梯的某个阶层中出现.
+\end{note}
+
+由于在集合论中讨论的对象是集合，我们排除考虑原子，原子在数学中没有明确的必要目的。取$A=\emptyset$,这样我们排除了原子，简化了阶梯.
+\[V_{\alpha+1}=V_{\alpha}\cup\p V_{\alpha},\]
+被简化为了
+\[V_{\alpha+1}=\p V_{\alpha}.\]
