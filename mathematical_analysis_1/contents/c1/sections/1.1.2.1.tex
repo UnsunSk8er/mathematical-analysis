@@ -1,0 +1,147 @@
+\subsubsection{部分公理和集合}
+
+这一小子节介绍前六个公理、从它们出发定义了符合朴素观点的集合和运算.
+
+由于前面已经讨论过了朴素的集合论观点.我们接下来要做的就是将它们抽象为公理且符合朴素集合论的观点.
+
+\begin{axiom}
+    [外延公理Extensionality Axiom]
+    如果两个集合有完全相同的元素，那么它们相等，即：
+    \[\forall A\forall B[\forall x(x\in A\iff x\in B)\implies A=B]\]
+\end{axiom}
+
+    外延公理即外延原理.它保证了接下来讨论的所有存在的集合的唯一性.
+下面需要一些公理来确保朴素集合论中碰到的基本集合的存在性.
+\begin{axiom}
+    [空集公理Empty Set Axiom]
+    存在一个集合没有元素，即：
+    \[\exists B\forall x x\notin B\]
+\end{axiom}
+
+\begin{axiom}
+    [配对公理Pairing Axiom]
+    对任意的集合$u,v$,存在一个集合恰好它的元素就是$v,v$，即：
+    \[\forall u\forall v\exists B\forall x(x\in B\iff x=u\vee x=v).\]
+\end{axiom}
+
+\begin{axiom}
+    [并集公理初级版Union Axiom, Preliminary Form]
+    对任意集合$a,b$,存在一个集合,它的元素是那些属于$a$或者属于$b$或者同时属于$a,b$的集合：
+    \[\forall a\forall b\exists B\forall x(x\in B\iff x\in a\vee x\in b).\]
+\end{axiom}
+
+\begin{axiom}
+    [幂集公理Power Set Axiom]
+    对任意集合$a$,存在一个集合它的元素恰好是$a$的子集：
+    \[\forall a\exists B\forall x(x\in B\iff x\subseteq a).\]
+\end{axiom}
+
+上面的$x\subseteq a$可以用$\in$重述为：
+\[\forall t(t\in x\implies t\in a).\]
+后面我们将扩充这些公理.
+
+列出公理后，我们首先定义符号$\emptyset$.
+\begin{definition}
+    [空集$\emptyset$（empty set）]
+    $\emptyset$ 是没有元素的集合.
+\end{definition}
+
+空集公理保证了$\emptyset$的存在性,外延公理保证了$\emptyset$的唯一性.
+
+\begin{note}
+    在引入符号时许多逻辑困境来自于存在性和唯一性.下面的集合存在性由对应的公理保证，唯一性由外延公理保证.
+\end{note}
+接下来类似从公理出发定义一些基本集合的符号.
+\begin{definition}
+    [双元素集（pair set）]
+    对任意集合$u,v$,双元素集$\{u,v\}$是元素仅为$u,v$的集合.
+\end{definition}
+配对公理保证了双元素集的存在性，外延公理保证了双元素集的唯一性。
+
+\begin{definition}
+    [并集（union）]
+    对任意集合$a,b$,并集$a\cup b$是元素属于$a$或者$b$或者同时属于$a,b$的集合.
+\end{definition}
+
+初级的并集公理保证了两个集合并集的存在性,外延公理保证了它的唯一性.
+
+通过双元素集可以定义有有限个元素的集合.单元素集（singleton）$\{x\}$可以由配对公理被定义为$\{x,x\}$.三元素集$\{x_1,x_2,x_3\}$可由并集公理定义为$\{x_1,x_2\}\cup\{x_3\}$,类似的可定义四元素$\{x_1,x_2,x_3\}\cup\{x_4\}$集等等.
+
+\begin{definition}
+    [幂集（power set）]
+    对任意集合$a$,幂集$\p a$是元素恰好为$a$的子集的集合.
+\end{definition}
+
+幂集公理保证了幂集的存在性，外延公理保证了幂集的唯一性.
+
+\begin{note}
+    配对公理、并集公理、幂集公理“从小到大”构造了基本的集合.而构造一些特定的集合需要新的公理，交集属于这类集合.
+\end{note}
+
+从朴素的观点看，定义了并之后我们自然想要对应地定义交。观察已经给出的公理表达形式，它们有共同的表达：
+\[\exists B\forall x(x\in B\iff \_\_).\]
+若还提及其他集合，那么完整版为：
+\[\forall t_1\cdots t_k\exists B\forall x(x\in B\iff \_\_).\]
+空格部分至多涉及$t_1,\cdots,t_k,x$
+空集公理可以重述为这种形式：
+\[\exists B\forall x(x\in B\iff x\ne x).\]
+若集合可以被重述为上面的形式，那么它可以用描述法表示：
+\[B=\{x\mid\_\_\}.\]
+前面讨论过描述法会导致的问题，即存在不能用这种形式表示的类。
+\begin{example}
+    \[\exists B\forall x(x\in B\iff x=x).\]是一个真类,不是一个集合.
+\end{example}
+若描述法表示的类$B$是集合，那么$B$一定在阶梯中，即：
+\[\exists\alpha\forall c B\subseteq c\subseteq V_\alpha\iff B\in V_{\alpha +1}.\]
+上述命题的充分性是集合的判定.必要性是我们所需要的,它指出了特定集合——子集的存在性，通过子集可以引出交集.
+
+\begin{axiom}
+    [子集公理模式Subset Axioms]
+    对每个不包含$B$的函式$\varphi$:
+    \[\forall t_1\cdots\forall t_k\forall c\exists B\forall x(x\in B\iff x\in B \wedge\varphi).\]
+\end{axiom}
+
+$B$是$c$的子集，它完全决定于$t_1,\cdots,t_k,c$.它可以用描述法表示：
+\[B=\{x\in c\mid\_\_\}.\]
+子集公理是一个公理模式，通过确定程式的内容可以确定一系列不同的集合.
+
+\begin{example}
+    [子集公理形式的交集]
+    \[\forall a\forall c\exists B\forall x(x\in B\iff x\in c\wedge x\in a).\]
+    这个子集公理保证了两个集合$c,a$的交集$B=c\cap a$的存在性,唯一性由外延公理保证.
+\end{example}
+
+\begin{example}
+    [子集公理形式的余集]
+    \[\forall A\forall B\exists S\forall t[t\in S\iff t\in A\wedge t\notin B].\]
+    这个子集公理保证了$B$在$A$中的余集$S=A-B$的存在性，唯一性由外延公理保证. 
+\end{example}
+
+\begin{note}%//TODO
+    子集公理模式又被称为分离公理模式，它蕴含了空集公理.
+\end{note}
+
+\begin{example}
+    [单元素子集]
+    $s$是个集合,那么存在元素是$s$单元素子集的集合$Q$：
+    \[Q=\{a\in\p s\mid a\textit{ is a one-element subset of }s \}.\]
+\end{example}
+
+\begin{theorem}
+    \label{221225.1}
+    不存在包含所有集合的集合.
+\end{theorem}
+
+\begin{proof}
+    令$A$为一个集合，构造一个不属于$A$的集合：
+    \[B=\{x\in A\mid x\notin x\}.\]
+    我们断言$B\notin A$.则由$B$的构造,
+    \[B\in B\iff B\in A\wedge B\notin B.\]
+    若$B\in A$,则简化为
+    \[B\in B\iff B\notin B.\]
+    这就产生了矛盾.因此$B\notin A$,即定理得证.
+\end{proof}
+\begin{note}
+    证明中构造的集合的存在性当由子集公理确保.
+\end{note}
+

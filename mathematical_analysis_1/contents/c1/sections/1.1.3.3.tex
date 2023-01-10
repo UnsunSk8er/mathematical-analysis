@@ -1,0 +1,69 @@
+\subsubsection{映射关系}
+
+这一小子节介绍数学各领域中广泛使用的映射关系（函数关系）.
+
+\begin{definition}
+    [映射（函数）与单射]
+    集合$F$是一个映射（function）,若它是一个单值关系.
+    
+    进一步，集合$F$是一个单射(injection)，若它是一个单根映射，即它是一个单根单值关系.
+\end{definition}
+在映射的朴素定义中,映射$f$是配备定义域$A$和陪域$B$（codomain）的对应法则,而值域即$A$的像集$f(A)$，陪域一定包含值域，我们称$f$是从$A$到(into)$B$的映射。进一步，若培域等于值域，则称$f$是映上的或满射.若$f$“满足”单值性,则称$f$是一对一的或单射.朴素定义的映射中的“对应法则”语焉不详，是不严格的，只提在这里作比较,但在不正式的讨论中，我们会用到这些朴素的概念便于叙述.
+\begin{note}
+    单射又被称为是一对一的（one-to-one）映射.
+\end{note}
+\begin{note}
+    由于所有关系构成一个集合，因此所有映射也构成一个集合.
+\end{note}
+
+\begin{note}
+    映射是集合范畴的态射.不久后我们可以验证，集合范畴是一个局部小范畴:
+    \begin{enumerate}
+        \item 对象为集合
+        \item 态射为映射是集合
+        \begin{enumerate}
+        \item 映射对复合封闭：映射的复合仍然是集合
+        \item 映射的复合满足结合律，且有单位元即恒等映射.
+        \end{enumerate}
+    \end{enumerate}
+\end{note}
+
+\begin{theorem}
+    [$F$和$F^{-1}$关于单根单值性的关系]
+    \begin{enumerate}
+        \item $F^{-1}$是一个映射当且仅当集合$F$是单根的.
+        \item 关系$F$是映射当且仅当$F^{-1}$是单根的.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    [单射的性质]
+    假设$F$是单射，则有:
+    \begin{align*}
+        &x\in\operatorname{dom}F\implies F^{-1}\left(F(x)\right)=x,\\
+        &y\in\operatorname{ran}F\implies F\left(F^{-1}(x)\right)=x.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    [集合范畴的映射对复合封闭]
+    若$F,G$为映射，则$F\circ G$也为映射.其定义域为
+    \[\{x\in\operatorname{dom}G\mid G(x)\in\operatorname{dom}F\},\]
+\end{theorem}
+
+\begin{theorem}
+    [映射左右逆的存在性]
+    假设映射$F:A\rightarrow B$,且$A\ne\emptyset$.
+    \begin{enumerate}
+        \item 存在映射$G:B\rightarrow A$使得$G\circ F$为$A$上的恒等映射当且仅当$F$是单射,称$G$为$F$的左逆.
+        \item 存在映射$H:A\rightarrow B$使得$H\circ F$为$B$上的恒等映射当且仅当$F$是满射,称$H$为$F$的右逆.
+        \end{enumerate}
+\end{theorem}
+
+这个定理的证明需要用到选择公理.为此我们给出以下第一版本的选择公理.
+\begin{axiom}
+    [选择公理第一版]
+    对任何关系,存在一个与其定义域相等的子映射.
+\end{axiom}
+
+

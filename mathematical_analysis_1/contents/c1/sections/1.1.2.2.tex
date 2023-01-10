@@ -1,0 +1,64 @@
+\subsubsection{任意的并和交}
+
+这一小子节推广有限的并和交运算到任意并和交.
+
+对于任意并，重复两个集合的并运算，我们可以得到有限多集合的并,即对$A=\{b_1,\cdots,b_n\}$：
+\[\bigcup A=\bigcup_{i=1}^n b_i=b_1\cup b_2\cup\cdots\cup b_n.\]
+若要得到可数无穷多集合的并,则对$A=\{b_1,\cdots,b_n,\cdots\}$:
+\[\bigcup A=\bigcup_i b_i=\{x\mid \exists i, x\in b_i\}.\]
+现在我们想要定义任意并，我们给出并集公理，并集公理直接确保了任意并的存在.
+
+\begin{axiom}
+    [并集公理Union Axiom]
+    对任意集合$A$,存在元素恰好为$A$元素的元素的集合$B$，即：
+    \[\forall A\exists B\forall x[x\in B\iff (\exists b\in A)x\in b].\]
+\end{axiom}
+
+\begin{example}
+    \begin{align*}
+        &\bigcup\emptyset=\emptyset,\\
+        &\bigcup\{a\}=a,\\
+        &\bigcup\{a,b\}=a\cup b,\\
+        &\bigcup\{a,b,c\}=a\cup b\cup c.
+    \end{align*}
+\end{example}
+
+有限并和可数并也是任意并的例子.通过并总能获得更大的集合.
+
+对于任意交，重复两个集合的交运算，我们可以得到有限多集合的交,即对$A=\{b_1,\cdots,b_n\}$：
+\[\bigcap A=\bigcap_{i=1}^n b_i=b_1\cap b_2\cap\cdots\cap b_n.\]
+若要得到可数无穷多集合的交,则对$A=\{b_1,\cdots,b_n,\cdots\}$:
+\[\bigcap A=\bigcap_i b_i=\{x\mid \forall i, x\in b_i\}.\]
+现在我们想要定义任意交，子集公理模式保证了任意交的存在性.
+\begin{theorem}
+    [任意交]
+    对任意非空集$A$,存在唯一的元素属于$A$的每个元素的集合$B$，即
+    \[\bigcap A=\{x\mid x\textit{属于}A\textit{的每个元素}.\}=\{x\mid (\forall b\in A)x\in b\}.\]
+\end{theorem}
+\begin{proof}
+    由于$A$非空，令$c$为$A$的某个元素.于是由子集公理模式，存在集合$B$，有
+    \begin{align*}
+        x\in B &\iff x\in c\wedge x\in b\in A,b\ne c\\
+        &\iff (\forall b\in A)x\in b.
+    \end{align*} 
+    唯一性由外延公理确保.
+\end{proof}
+
+\begin{example}
+    \begin{align*}
+        &\bigcap\{a\}=a,\\
+        &\bigcap\{a,b\}=a\cap b,\\
+        &\bigcap\{a,b,c\}=a\cap b\cap c.
+    \end{align*}
+\end{example}
+有限交和可数交也是任意交的例子.通过交我们总能获得更小的集合.
+
+当$A=\emptyset$时，$\bigcap A$由\ref{221225.1}可知不是集合是类，因此我们不用过多关注它。
+
+\begin{example}
+    \begin{align*}
+        &b\in A\implies b\subset\bigcup A,\\
+        &\{\{x\},\{x,y\}\}\in A\implies \{x,y\}\in\bigcup A,\quad x,y\in\bigcup\bigcup A,\\
+        &\bigcap\{\{a\},\{a,b\}\}=\{a\}\implies\bigcup\bigcap\{\{a\},\{a,b\}\}=a,\quad \bigcap\bigcup\{\{a\},\{a,b\}\}=a\cap b.
+    \end{align*}
+\end{example}

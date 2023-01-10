@@ -1,0 +1,97 @@
+\subsubsection{集合代数}
+这一小子节讨论集合上的包含关系和交并差运算.
+
+并运算由并集公理得到：
+
+\[A\cup B=\{x\mid x\in A\vee x\in B\}\]
+
+包含关系（inclusion relation）、交（intersection）、差（relative complementation）由子集公理模式得到：
+
+\begin{align*}
+    &A\subseteq B\iff x\in A\implies x\in B,\\
+    &A\cap B=\{x\mid x\in A\wedge x\in B\},\\
+    &A-B=\{x\in A\mid x\in B\},\\
+\end{align*}
+补的概念由包含关系和差运算共同得到，若$A\subseteq B$,则$B-A$为$A$在$B$中的补，可以记作$C_B^A$,若讨论的集合都在$B$中则可以记作$-A$或$A^c$：
+\[A^c=\{x\in A\mid x\notin B\}.\]
+此时$B$称为空间（space）.集合的补又称相对补，本质上是差运算.
+
+一个集合$A$的绝对补是类不是集合：
+\[A^c=\{x\mid x\notin B\}.\]
+即绝对补不在一个指定的集合中讨论,不能由子集公理模式得出.
+
+集合的包含关系、交并差运算称为集合的代数.下面是集合代数的一些基本事实.
+\begin{proposition}
+    [集合代数恒等式]
+    结合律（Associative laws）:\[A\cup(B\cup C)=(A\cup B)\cup C,\quad A\cap(B\cap C)=(A\cap B)\cap C.\]
+    交换律（Commutative laws）:\[A\cup B=B\cup A,\quad A\cap B=B\cap A.\]
+    分配律（Distributive laws）:\[A\cap(B\cup C)=(A\cap B)\cup(A\cap C),\quad A\cup(B\cap C)=(A\cup B)\cap(A\cup C).\]
+    德摩根律（De Morgan's laws）:\[C-(A\cup B)=(C-A)\cap(C-B),\quad C-(A\cap B)=(C-A)\cup(C-B).\]
+    涉及空集的恒等式（Identities involving $\emptyset$）:\[A\cup\emptyset=A,\quad A\cap\emptyset=\emptyset,\quad A\cap(C-A)=\emptyset.\]
+\end{proposition}
+上面的所有规律对一般集合都成立.而对于一些特殊的集合，其中一些规律的形式会简化，下面进行讨论.
+
+若空间确定为$S$,则德摩根律会变为:
+\[-(A\cup B)=-A\cap -B,\quad -(A\cap B)=-A\cup -B.\]
+进一步有：
+\[A\cup S=S,\quad A\cap S=A,\quad A\cup S=S,\quad A\cap-A=\emptyset.\]
+
+现在来谈论如何证明这些法则，一共有两种方法：韦恩图和真值表.
+
+对于包含关系，我们有以下单调性和反单调性:
+\begin{align*}
+    &A\subseteq B\implies A\cup C\subseteq B\cup C,\\
+    &A\subseteq B\implies
+    A\cap C\subseteq B\cap C,\\
+    &A\cup B\implies C-A\supseteq C-B,\\
+    &A\cup B\implies \bigcup A\subseteq \bigcup B,\\
+    \emptyset\ne &A\cup B\implies\bigcap A\supseteq\bigcap B.
+\end{align*}
+前面三条涉及三个集合，后面两条只涉及两个集合和任意并,下面讨论涉及任意并和任意交的运算律.
+
+\begin{proposition}
+    [分配律（Distributive laws for $\mathscr{B}\ne\emptyset$）]
+\begin{align*}
+    &A\cup\bigcap\mathscr{B}=\bigcap\{A\cup X\mid X\in\mathscr{B}\},\\
+    &A\cap\bigcup\mathscr{B}=\bigcup\{A\cap X\mid X\in\mathscr{B}\}.
+\end{align*}
+\end{proposition}
+
+\begin{note}
+    命题中的集合有其他记号
+    \[\bigcap_{X\in\mathscr{B}}(A\cup X)=\bigcap\{A\cup X\mid X\in\mathscr{B}\},\quad \mathscr{B}\ne\emptyset,\]
+\end{note}
+
+记号$\{A\cup X\mid X\in\mathscr{B}\}$是描述法的拓展，它确定了集合$\mathscr{D}$:
+\[t\in\mathscr{D}\iff \exists X\in\mathscr{B}\st t=A\cup X.\]
+$\mathscr{D}$的存在性由子集公理模式确保,首先观察到$A\cup X\subseteq A\cup\bigcup\mathscr{B}$,从而$\mathscr{D}\subseteq\mathscr{P}(A\cup\bigcup\mathscr{B})$,
+于是
+\[\mathscr{D}=\{t\in\mathscr{P}(A\cup\bigcup\mathscr{B})\mid \exists X\in\mathscr{B}\st t=A\cup X\}.\]
+相比之下，记号
+\[\mathscr{D}=\{A\cup X\mid X\in\mathscr{B}\}\]更为简洁.
+
+\begin{example}%//TODO
+    \[\{C-X\mid X\in\mathscr{A}\}\]
+\end{example}
+
+\begin{proposition}
+    [德摩根律(De Morgan's laws for $\mathscr{A}\ne\emptyset$)]
+    \begin{align*}
+        &C-\bigcup\mathscr{A}=\bigcap\{C-X\mid X\in\mathscr{A}\},\\
+        &C-\bigcap\mathscr{A}=\bigcup\{C-X\mid X\in\mathscr{A}\}.
+    \end{align*}
+\end{proposition}
+
+\begin{proof}
+    \begin{align*}
+        t\in C-\bigcup\mathscr{A}
+        &\iff t\in C \wedge\neg(\exists x\in\mathscr{A}\st t\in x)\\
+        &\iff t\in C-X,\forall X\in\mathscr{A}\\
+        &\iff t\in\bigcap\{C-X\mid X\in\mathscr{A}\}.
+    \end{align*}
+\end{proof}
+
+\begin{note}
+    命题中的集合有其他记号
+    \[\bigcup_{X\in\mathscr{A}}(C-X)=\bigcup\{C-X\mid X\in\mathscr{A}\}\]
+\end{note}

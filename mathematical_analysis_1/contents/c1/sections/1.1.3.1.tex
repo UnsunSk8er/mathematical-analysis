@@ -1,0 +1,70 @@
+\subsubsection{序偶}
+
+这一小子节介绍元素有顺序的双元素集.
+
+我们已经从配对公理获得了双元素集，但是由外延公理我们知道有下面的事实：
+\[\{x,y\}=\{y,x\}.\]
+这说明集合里的元素是没有先后顺序的.
+
+而为了使集合含有顺序的信息，我们尝试一些定义一些有序的二元集.
+
+\begin{example}
+\begin{align*}
+    &\langle x,y\rangle_1=\{x,y\},\\
+    &\langle x,y\rangle_2=\{x,\{y\}\}.
+\end{align*}
+容易验证这两个尝试定义是失败的，即存在集合$x,y$使得上面的两个"序对"成立$\langle x,y\rangle=\langle y,x\rangle$.    
+\end{example}
+
+下面我们正式定义序对.
+\begin{definition}
+    [序偶]
+    \[
+    \langle x,y\rangle\coloneq\{\{x\},\{x,y\}\}\]
+    称上述定义的$\langle x,y\rangle$为序偶或序对.
+\end{definition}
+\begin{note}
+    这个定义由Kazimierz Kuratowski在1921年引入,在今天被广泛使用.另外，第一个定义成功的序偶由Norbert Wiener在1914年引入,定义如下:
+    \[\langle x,y\rangle_3\coloneq\{\{\{x\},\emptyset\},\{\{y\}\}\}.\]
+    它可以由下面的定理判定.
+\end{note}
+
+\begin{theorem}
+    [序偶的判定]
+    \[\langle u,v\rangle=\langle x,y\rangle\iff (u=x)\wedge (v=y).\]
+\end{theorem}
+
+\begin{proof}%//TODO
+\end{proof}
+正是由于有了这个我们想要的性质,序偶才被称为序偶.它告诉我们$\langle x,y\rangle$的第一个坐标（coordinate）为$x$,第二个坐标为$y$.
+
+于是我们可以通过序偶引入笛卡尔积(Cartesian product).
+\begin{definition}
+    [笛卡尔积]
+    \[A\times B\coloneq\{\langle x,y\rangle\mid x\in A \wedge y\in B\}\]
+    上述定义的类$A\times B$称为$A$和$B$的笛卡尔积.
+\end{definition}
+
+为了验证笛卡尔积为一个集合，我们有以下引理和推论.
+
+\begin{lemma}
+    \[(x\in C)\wedge(y\in C)\implies\langle x,y\rangle\in\p\p C.\]
+\end{lemma}
+\begin{proof}
+    %//TODO
+\end{proof}
+
+\begin{corollary}
+    \[\forall A,B\exists C[x\in C\iff x\in A\times B]\]
+\end{corollary}
+\begin{proof}
+    从子集公理模式我们可以构造$C$如下,
+    \[\{w\in\p\p(A\cup B)\mid \exists x\in A,y\in B(w=\langle x,y\rangle)\}.\]由引理可知$C$包含了所有这样形式的序偶.
+\end{proof}
+序偶还有其他定义，只要满足序偶的判定条件即可.
+
+\begin{note}
+    这一小子节的序偶的存在性由配对公理保证，唯一性由外延公理保证;笛卡尔积的存在性由子集公理保证，唯一性由外延公理保证.
+\end{note}
+
+    

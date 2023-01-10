@@ -1,0 +1,76 @@
+\subsubsection{语言和公理}
+
+这一小子节介绍集合论的语言和所有公理.
+
+为了赋予公理以确定的形式，我们在一阶谓词逻辑的框架下阐述公理化集合论。集合论的语言由等式谓语$=$和二元谓语$\in$即成员关系组成.
+
+集合论的函式由原子函式
+\[x\in y,\quad x=y\]
+通过连接词
+\[\varphi\wedge\psi ,\quad\varphi\vee\psi ,
+\quad\neg\varphi ,
+\quad\varphi\rightarrow\psi ,
+\quad\varphi\leftrightarrow\psi\]
+（与、或、非、条件（蕴含$\implies$）、双条件（等价$\iff$））和量词
+\[\forall x\varphi,\quad\exists x\varphi.\]组成。它们的优先顺序为$\neg,\wedge,\vee,\rightarrow,\leftrightarrow$,可以使用括号$()$改变优先级别.实际上还有其他定义的谓词、运算、常量和非正式函式.但这些函式可被重写成只涉及等式谓语和成员关系两个非逻辑符号的形式。
+
+涉及变量$u_1,\cdots,u_n$的函式$\varphi$，我们倾向于使用以下记号
+\[\varphi(u_1,\cdots,u_n)\]
+$u_1,\cdots,u_n$中可以有常量，若其中一个变量也没有，则称其为语句（sentence）.
+前面提到的性质描述$P()$和$\_\_x\_\_$还有陈述$\sigma$都可以用函式代替。
+\begin{axiom}
+[外延公理Extensionality Axiom]
+如果两个集合有完全相同的元素，那么它们相等，即：
+\[\forall A\forall B[\forall x(x\in A\iff x\in B)\implies A=B].\]
+\end{axiom}
+
+\begin{axiom}
+    [空集公理Empty Set Axiom]
+    存在一个集合没有元素，即：
+    \[\exists B\forall x x\notin B.\]
+\end{axiom}
+
+\begin{note}
+    空集公理可以由其它的公理推出,可以从公理中拿走.
+\end{note}
+
+\begin{axiom}
+    [配对公理Pairing Axiom]
+    对任意的集合$u,v$,存在一个集合恰好它的元素就是$v,v$，即：
+    \[\forall u\forall v\exists B\forall x(x\in B\iff x=u\vee x=v).\]
+\end{axiom}
+
+\begin{axiom}
+    [并集公理Union Axiom]
+    对任意集合$A$,存在元素恰好为$A$元素的元素的集合$B$，即：
+    \[\forall A\exists B\forall x[x\in B\iff (\exists b\in A)x\in b].\]
+\end{axiom}
+
+\begin{axiom}
+    [幂集公理Power Set Axiom]
+    对任意集合$a$,存在一个集合它的元素恰好是$a$的子集,即：
+    \[\forall a\exists B\forall x(x\in B\iff x\subseteq a).\]
+\end{axiom}
+
+\begin{axiom}
+    [子集公理模式Subset Axioms]
+    对每个不包含$B$的函式$\varphi$:
+    \[\forall t_1\cdots\forall t_k\forall c\exists B\forall x(x\in B\iff x\in c \wedge\varphi).\]
+\end{axiom}
+
+\begin{note}
+    涉及$t_1,\cdots,t_k$的函式$\varphi$可以表示为
+    \[\varphi(t_1,\cdots,t_k)\]
+\end{note}
+
+\begin{axiom}
+    [无穷公理Infinity Axiom]
+\end{axiom}
+
+\begin{axiom}
+    [选择公理Choice Axiom]
+\end{axiom}
+
+\begin{axiom}
+    [替代公理Replacement Axioms]
+\end{axiom}

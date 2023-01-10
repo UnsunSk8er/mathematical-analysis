@@ -1,0 +1,114 @@
+\subsubsection{关系}
+
+这一小子节用序偶引入二元关系、定义域、值域、域，再递归地定义$n$元关系，最后定义关系的逆、复合、限制和限制的像.
+
+\begin{definition}
+    [二元关系]
+    关系是序偶的集合,即
+    \[R\coloneq\{\langle x,y\rangle\in A\times B\mid P(x,y)\}.\]
+    我们倾向于记$\langle x,y\rangle\in R$为$xRy$
+\end{definition}
+
+我们更加关注一些特殊的关系，如映射关系、等价关系、序关系.处于讨论它们的需要,我们引入集合的定义域（domain）、值域（range）、域（field）.
+
+\begin{definition}
+    [集合的定义域、值域、域]
+    \begin{align*}
+        &x\in\operatorname{dom}R\iff\exists y\langle x,y\rangle\in R,\\
+        &x\in\operatorname{ran}R\iff\exists t\langle t,x\rangle\in R,\\
+        &\operatorname{fld}R=\operatorname{dom}R\cup\operatorname{ran}R.
+    \end{align*}
+\end{definition}
+
+下面的定理验证$\operatorname{dom}R$和$\operatorname{ran}R$是集合.即存在集合$B$使得$R$的定义域可以写成以下形式:
+\begin{align*}
+    \operatorname{dom}R=\{x\in B\mid \exists \langle x,y \rangle \in R\}.
+\end{align*}
+
+\begin{note}
+    \begin{enumerate}
+        \item 定义域、值域和域的概念可以对一般的集合定义，而不必是二元关系.
+        \item 而一个关系的元素一定都是序偶.定义了集合的定义域和值域后，其实就从原来的得到了一个关系.
+    \end{enumerate}
+\end{note}
+
+\begin{example}
+    令
+    \[R=\{{\emptyset,\langle \emptyset,\{\emptyset\}\rangle}\}.\]
+    则
+    \begin{align*}
+        &\operatorname{dom}R=\emptyset,\\
+        &\operatorname{ran}R=\{\emptyset\},\\
+        &\operatorname{fld}R=\{\emptyset,\{\emptyset\}\}.
+    \end{align*}
+    $R$不是关系，但是从$R$的定义域和值域可立即得到一个关系$\{\langle\emptyset,\{\emptyset\}\rangle\}$
+\end{example}
+
+\begin{note}
+    从上面的例子看出$\{\emptyset\}\notin R$,但是我们需要它属于某个集合，从而确保它的存在性，即验证上面定义的定义域、值域是一个集合.对此我们有以下定理.
+\end{note}
+
+\begin{theorem}
+    [坐标判定]
+    \[\langle x,y\rangle\in A\implies x,y\in\bigcup\bigcup A.\]
+\end{theorem}
+于是上面我们所要的集合$B$存在且:
+\[B=\bigcup\bigcup A.\]
+从而我们定义的集合的定义域、值域和域是一个集合.
+\begin{note}
+    这小子节的关系、定义域、值域、域的存在性由子集公理模式保证,唯一性由外延公理保证.
+\end{note}
+
+通过二元关系由序偶定义，我们可以递归地用序偶定义$n$元有序对，从而定义$n$元关系.由二元关系是二元笛卡尔积的子集，$n$元关系是$n$元笛卡尔积的子集.我们习惯简称二元关系为关系.
+
+对于关系，下面我们定义一些集合的运算，它们特别多用于关系和映射.
+
+\begin{definition}
+    [集合的逆、复合、限制]
+    \begin{enumerate}
+        \item 集合$R$的逆为集合\[R^{-1}=\{\langle u,v\rangle\mid uFv\}.\]
+        \item 集合$F,G$的复合为集合\[F\circ G=\{\langle u,v\rangle\mid \exists t(uGt\wedge tFv)\}.\]
+        \item 集合$F$在$A$上的限制为集合\[F|_A=\{\langle u,v\rangle\mid uFv\wedge u\in A\}.\]
+        $F$在$A$下的像为集合\[F(A)=\operatorname{ran}(F|_A)=\{v\mid(\exists u\in A)uFv\}.\]
+    \end{enumerate}
+\end{definition}
+
+可以用子集公理模式验证它们都是集合:
+
+\begin{align*}
+    &F^{-1}\subseteq\operatorname{ran}F\times\operatorname{dom}F,\\
+    &F\circ G\subseteq\operatorname{dom}G\times\operatorname{ran}F,\\
+    &F|_A\subseteq F,\\
+    &F(A)\subseteq\operatorname{ran}F.
+\end{align*}
+
+\begin{note}
+    集合的逆、复合、限制的元素为序偶，而限制下的像为限制的第二坐标构成的集合.
+\end{note}
+
+\begin{theorem}
+    [逆的定义域和值域]
+        对集合$F$,
+        \begin{align*}
+            &\operatorname{dom}F^{-1}=\operatorname{ran}F,\\
+            &\operatorname{ran}F^{-1}=\operatorname{dom}F.  
+        \end{align*}
+        对关系$F$,
+        \[\left(F^{-1}\right)^{-1}=F.\]
+\end{theorem}
+
+\begin{theorem}
+    [逆和复合的操作顺序]
+    对集合$F,G$,
+    \[(F\circ G)^{-1}=G^{-1}\circ F^{-1}.\]
+\end{theorem}
+
+\begin{definition}
+    [集合的单根性和单值性]
+
+    \begin{enumerate}
+        \item 集合$R$是单值的（single-valued）,若对任意$x\in \operatorname{dom}R$,存在唯一的$y$使得$xRy.$
+        \item 集合$R$是单根的（single-rooted）,若对任意$y\in \operatorname{ran}R$,存在唯一的$x$使得$xRy$.
+\end{enumerate}
+\end{definition}
+这些定义（包括集合的逆、复合、限制和限制下的像）虽然是对集合进行定义（容易验证它们是集合），但多用于关系,特别是映射关系,将在下一子节引入，放在这里提出是为了讲义的结构.
